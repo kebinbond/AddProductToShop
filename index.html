@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Install Extension</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <!-- External CSS file -->
+        <link rel="stylesheet" href="myStyles.css">
+    </head>
+    <body>
+        <div class="">
+            <button class="btn btn-primary mt-3 ml-3" id="myButton"
+                data-toggle="modal" data-target="#myModal">Add Icon!</button>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" data-backdrop="static">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">ADD ICON</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <form id="myForm" method="POST">
+                            
+                            <div class="form-group">
+                                <label for="typicalTime">Typical return period of time for the majority of items?</label>
+                                <input type="number" class="form-control" id="typicalTime" name="typicalTime" placeholder="Enter number of days" min="0">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="label label--block" for="holidaySelect">Holiday return period of time for the majority of items?</label>
+                                <div class="form-row ml-0">
+                                    <select id="holidaySelect" name="holidaySelect" class="form-control col-md-2 mr-5">
+                                        <option value="yes">Yes</option>
+                                        <option value="no">No</option>
+                                    </select>
+                                    <input type="number" class="form-control col float-left mr-1" id="holidayTime" name="holidayTime" placeholder="Input Date Range" min="0">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="label label--block" for="otherHolidaySelect">Do you have a different holiday return period of time for the majority of items?</label>
+                                <div class="form-row ml-0">
+                                    <select id="otherHolidaySelect" name="otherHolidaySelect" class="form-control col-md-2 mr-5">
+                                        <option value="yes">Yes</option>
+                                        <option value="no">No</option>
+                                    </select>
+                                    <input type="number" class="form-control col float-left mr-1" id="otherHolidayTime" name="otherHolidayTime" placeholder="Input Date Range" min="0">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="label label--block" for="reducedTimeSelect">Certain items have a reduced return period of item?</label>
+                                <div class="form-row ml-0">
+                                    <select id="reducedTimeSelect" name="reducedTimeSelect" class="form-control col-md-2 mr-5">
+                                        <option value="yes">Yes</option>
+                                        <option value="no">No</option>
+                                    </select>
+                                    <div class="form-group col pl-0 mb-0" id="reducedTimeGroup">
+                                        <input type="number" class="form-control pl-1" id="reducedTime" name="reducedTime" placeholder="Input Date Range" min="0">
+                                        <p class="text-right text-primary mb-0">Add this to your product meta data "#reduced return"!</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="label label--block" for="otherReducedTimeSelect">Certain items have a different reduced return period of item?</label>
+                                <div class="form-row ml-0">
+                                    <select id="otherReducedTimeSelect" name="otherReducedTimeSelect" class="form-control col-md-2 mr-5">
+                                        <option value="yes">Yes</option>
+                                        <option value="no">No</option>
+                                    </select>
+                                    <div class="form-group col pl-0 mb-0" id="otherReducedTimeGroup">
+                                        <input type="number" class="form-control pl-1" id="otherReducedTime" name="otherReducedTime" placeholder="Input Date Range" min="0">
+                                        <p class="text-right text-primary mb-0">Add this to your product meta data "#reduced return2"!</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="label label--block" for="carryItemSelect">Do you carry items that are not returnable?</label>
+                                <div class="form-row ml-0">
+                                    <select id="carryItemSelect" name="carryItemSelect" class="form-control col-md-2 mr-5">
+                                        <option value="yes">Yes</option>
+                                        <option value="no">No</option>
+                                    </select>
+                                    <div class="form-group col pl-0 mb-0" id="carryItem">
+                                        <p class="text-right text-primary mb-0">Add this to your product meta data "#reduced return"!</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="label label--block" for="customerSelect">Allow customers to return items beyond your return windows</label>
+                                <div class="form-row ml-0">
+                                    <select id="customerSelect" name="customerSelect" class="form-control col-md-2 mr-5">
+                                        <option value="yes">Yes</option>
+                                        <option value="no">No</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="label label--block" for="manualReviewSelect">If retail price of return exceeds a certain dollar amount, do you want to manually review?</label>
+                                <div class="form-row ml-0">
+                                    <select id="manualReviewSelect" name="manualReviewSelect" class="form-control col-md-2 mr-5">
+                                        <option value="yes">Yes</option>
+                                        <option value="no">No</option>
+                                    </select>
+                                    <input type="number" class="form-control col float-left mr-1" id="manualReview" name="manualReview" placeholder="Greater than what dollar amount?" min="0">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="label label--block" for="xCustomerSelect">Do you want to manually review after X customer returns per month?</label>
+                                <div class="form-row ml-0">
+                                    <select id="xCustomerSelect" name="xCustomerSelect" class="form-control col-md-2 mr-5">
+                                        <option value="yes">Yes</option>
+                                        <option value="no">No</option>
+                                    </select>
+                                    <input type="number" class="form-control col float-left mr-1" id="xCustomer" name="xCustomer" placeholder="Threshold of returns per month" min="0">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="label label--block" for="feeSelect">Do you charge a general restocking fee for all returns?</label>
+                                <div class="form-row ml-0">
+                                    <select id="feeSelect" name="feeSelect" class="form-control col-md-2 mr-5">
+                                        <option value="yes">Yes</option>
+                                        <option value="no">No</option>
+                                    </select>
+                                    <input type="number" class="form-control col float-left mr-1" id="fee" name="fee" placeholder="What % do you charge?" min="0">
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Submit</button>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Bootstrap JS -->
+        <script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <!-- External JS -->
+        <script src="myScripts.js"></script>
+    </body>
+</html>
